@@ -80,20 +80,7 @@ public class InsertionSort {
             clearScreen();
             mostraVetor(X);
             System.out.println("");
-            /*if (!(X[j + 1] == X[X.length - 1])) {
-                if (X[j + 1] <= X[j + 2]) {
-                    System.out.println("Substitui o " + X[j + 2] + " pelo valor do " + eleito + "...");
-                    sc.nextLine();
-                    clearScreen();
-                    mostraVetor(X, X[j + 1], j + 2);
-                    sc.nextLine();
-                    clearScreen();
-                }
-                mostraVetor(X);
-                System.out.println("");
-            }else {
-                System.out.println("FINALIZADO");
-            }*/
+            
 
         }
 
