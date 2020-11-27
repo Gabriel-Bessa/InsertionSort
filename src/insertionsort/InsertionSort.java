@@ -36,55 +36,64 @@ public class InsertionSort {
 
             mostraVetor(X, eleito);
             sc.nextLine();
-            System.out.println("ATUAL se torna o elemento a esquerda do eleito: " + X[j]);
+            System.out.println("EM ANÁLISE se torna o elemento a esquerda do eleito: " + X[j]);
             sc.nextLine();
             clearScreen();
             mostraVetor(X, eleito, j);
             sc.nextLine();
 
             do {
-                System.out.println("Testa se a POSIÇÃO do atual é maior ou igual a 0 e ");
-                System.out.println("se o valor de ATUAL é maior que o eleito");
+                System.out.println("A posição do que será análizado (" + X[j] + ") é maior ou igual a 0?");
+                System.out.println("Posição: " + j);
+                System.out.println("e");
+                System.out.println("Valor " + X[j] + " é maior que o " + eleito + "?");
+
                 sc.nextLine();
 
                 while (j >= 0 && X[j] > eleito) {
-
-                    System.out.println("Consições validas!");
-                    System.out.println("ou seja o numero a esquerda do eleito é maior que o eleito");
-                    System.out.println("então é gerado uma copia do ATUAL por \"cima\" do ELEITO");
+                    System.out.println("TRUE!!!");
                     sc.nextLine();
                     clearScreen();
 
                     X[j + 1] = X[j];
                     mostraVetor(X, eleito, j);
-
-                    System.out.println("Subtrai 1 da POSIÇÃO do ATUAL...");
-                    System.out.println("Era: " + j);
+                    System.out.println(eleito + " foi substituido por " + X[j]);
+                    System.out.println("Existe elemento a esquerda do " + X[j] + " maior que " + eleito + "?");
                     j -= 1;
-                    System.out.println("Agora é: " + j);
                     sc.nextLine();
                 }
                 if (!(j >= 0 && X[j] > eleito)) {
-                    System.out.println("Condições invalidas!");
+                    System.out.println("FALSE!!!");
                     sc.nextLine();
                     clearScreen();
                 }
-                System.out.println("Tenta voltar no Loop...");
-                System.out.println("Testa se a POSIÇÃO do atual é maior ou igual a 0 e ");
-                System.out.println("se o valor de ATUAL é maior que o eleito");
-                sc.nextLine();
 
             } while (j >= 0 && X[j] > eleito);
             mostraVetor(X, eleito, j + 1);
-            
+            System.out.println("Substituindo o "+X[j+1]+" pelo "+eleito);
+            sc.nextLine();
+            clearScreen();
+
             X[j + 1] = eleito;
-            if (X[j + 1] <= X[j + 2]) {
-                System.out.println("Substitui o ATUAL pelo valor do eleito...");
-                sc.nextLine();
-                clearScreen();
-                mostraVetor(X, X[j + 1], j + 2);
-                sc.nextLine();
-            }
+            mostraVetor(X, eleito, j + 2);
+            sc.nextLine();
+            clearScreen();
+            mostraVetor(X);
+            System.out.println("");
+            /*if (!(X[j + 1] == X[X.length - 1])) {
+                if (X[j + 1] <= X[j + 2]) {
+                    System.out.println("Substitui o " + X[j + 2] + " pelo valor do " + eleito + "...");
+                    sc.nextLine();
+                    clearScreen();
+                    mostraVetor(X, X[j + 1], j + 2);
+                    sc.nextLine();
+                    clearScreen();
+                }
+                mostraVetor(X);
+                System.out.println("");
+            }else {
+                System.out.println("FINALIZADO");
+            }*/
 
         }
 
@@ -135,7 +144,7 @@ public class InsertionSort {
         System.out.printf("\n---- Situação do Vetor ----\n");
         System.out.println("Legenda:");
         System.out.println("[" + ANSI_BLUE_BACKGROUND + "-" + ANSI_RESET_BACKGROUND + "] --> ELEITO");
-        System.out.println("[" + ANSI_RED_BACKGROUND + "-" + ANSI_RESET_BACKGROUND + "] --> ATUAL");
+        System.out.println("[" + ANSI_RED_BACKGROUND + "-" + ANSI_RESET_BACKGROUND + "] --> EM ANÁLISE");
     }
 
     public static void clearScreen() {
