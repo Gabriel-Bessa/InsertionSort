@@ -70,19 +70,41 @@ public class InsertionSort {
 
             } while (j >= 0 && X[j] > eleito);
             mostraVetor(X, eleito, j + 1);
-            System.out.println("Substituindo o "+X[j+1]+" pelo "+eleito);
-            sc.nextLine();
-            clearScreen();
+            if (X[j + 1] != eleito) {
+                System.out.println("Substituindo o " + X[j + 1] + " pelo " + eleito);
+                sc.nextLine();
+                clearScreen();
+            } else {
+                clearScreen();
+            }
 
             X[j + 1] = eleito;
-            mostraVetor(X, eleito, j + 2);
-            sc.nextLine();
-            clearScreen();
-            mostraVetor(X);
+            if (X[j + 1] != eleito) {
+                mostraVetor(X, eleito, j + 2);
+                sc.nextLine();
+                clearScreen();
+            } else {
+                if (eleito < X[j + 2]) {
+                    mostraVetor(X, eleito);
+                    sc.nextLine();
+                    clearScreen();
+                } else if (eleito > X[j + 2]) {                    
+                    mostraVetor(X, eleito);
+                    System.out.println(eleito + " mantido do lugar...");
+                    sc.nextLine();
+                    clearScreen();
+                } else {
+                    mostraVetor(X, eleito, j + 2);
+                    sc.nextLine();
+                    clearScreen();
+                }
+            }
+            mostraVetor(X);            
             System.out.println("");
-            
 
         }
+        System.out.println(ANSI_GREEN + " ORDENAÇÃO COMPLETA!!!");
+        sc.nextLine();
 
     }
 
